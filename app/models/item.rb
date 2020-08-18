@@ -1,8 +1,6 @@
-class User < ApplicationRecord
-  def change
-    create_table :tweets do |t|
-      t.string    :text
-      t.references :user
-    end
-  end
+class item < ApplicationRecord
+  has_many :item_imgs, dependent: :destroy
+  has_one :user_evaluation
+  belongs_to :brand
 end
+

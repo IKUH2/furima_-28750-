@@ -8,16 +8,15 @@
 | email            | string | null: false |
 | password         | string | null: false |
 | nickname         | string | null: false |
-| user_id          | string | null: false |
 | first_name       | string | null: false |
 | family_name      | string | null: false |
 | first_name_kana  | string | null: false |
 | family_name_kana | string | null: false |
-
+| birthday         | integer| null: false |
 
 ### Association
 
-- has_many :users, dependent: :put,delete,patch
+- has_many :items, dependent: :put,delete,patch
 
 ## items テーブル
 
@@ -28,11 +27,10 @@
 | category         | references | null: false |
 | item_condition   | references | null: false |
 | postage_payer    | references | null: false |
-| ship-from        | references | null: false |
+| ship_from        | references | null: false |
 | preparation_day  | references | null: false |
 | price            | integer    | null: false |
 | size             | references | null: false |
-| trading_status   | enum       | null: false |
 | item_id          | references | null: false |
 | user_id          | string     | null: false |
 
@@ -59,9 +57,6 @@
 | --------         | ------     | ----------------------------- |
 | user             | string     |null: false, foreign_key: true |
 | item             | references |null: false, foreign_key: true |
-| card_number      | integer    | null: false                   |
-| expiration_year  | integer    | null: false                   |
-| security_code    | integer    | null: false                   |
 | post_code        | integer(7) | null: false                   |
 | city             | string     | null: false                   |
 | house_number     | string     | null: false                   |
