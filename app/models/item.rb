@@ -1,3 +1,8 @@
 class User < ApplicationRecord
-  has_many :item_imgs, dependent: :destroy
+  def change
+    create_table :tweets do |t|
+      t.string    :text
+      t.references :user
+    end
+  end
 end
