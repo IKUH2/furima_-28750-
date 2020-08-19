@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items, dependent: :destroy
-- has_many :sold, dependent: :destroy
+- has_many :trade, dependent: :destroy
 
 ## items テーブル
 
@@ -36,15 +36,15 @@
 ### Association
 
 - belongs_to :users, dependent: :get
-- has_many :sold, dependent: :put,patch
+- has_many :trade, dependent: :put,patch
 
 ## trade テーブル
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
-| user             | string     |null: false, foreign_key: "user_id",class_name: "users" |
-| item             | references |null: false, foreign_key: "item_id",class_name: "items" |
-
+| user_id          | string     |null: false, foreign_key: "user_id",class_name: "users" |
+| item_id          | references |null: false, foreign_key: "item_id",class_name: "items" |
+| trade_id         | integer    | null: false                                            |
 ### Association
 belongs_to :users,items 
 
@@ -63,4 +63,4 @@ belongs_to :users,items
 
 ### Association
 
-- belongs_to :user,item,dependent: :put,destroy,patch
+- belongs_to :users,item,dependent: :put,destroy,patch
