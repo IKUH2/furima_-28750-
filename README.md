@@ -36,8 +36,6 @@
 ### Association
 
 - has_one : trades
-- belongs_to :user
-- has_many :trades, dependent: :destroy
 
 ## trades テーブル
 
