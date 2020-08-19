@@ -47,6 +47,7 @@
 
 ### Association
 
+- has_one:trade
 - belongs_to :user
 - belongs_to :item
 
