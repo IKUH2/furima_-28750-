@@ -7,7 +7,6 @@
 | name             | string | null: false |
 | email            | string | null: false |
 | password         | string | null: false |
-| nickname         | string | null: false |
 | first_name       | string | null: false |
 | family_name      | string | null: false |
 | first_name_kana  | string | null: false |
@@ -16,8 +15,8 @@
 
 ### Association
 
-- has_many :items, dependent: :put,delete,patch
-- has_many :sold, dependent: :put,patch
+- has_many :items, dependent: :destroy
+- has_many :sold, dependent: :destroy
 
 ## items テーブル
 
@@ -39,19 +38,6 @@
 - belongs_to :users, dependent: :get
 - has_many :item_imgs, dependent: :destroy
 - has_many :sold, dependent: :put,patch
-
-
-
-## item_imgs テーブル
-
-| Column   | Type       | Options     |
-| -------- | ------     | ----------- |
-| url      | string     | null: false |
-| item     | references | null: false |
-
-### Association
-
-- belongs_to :item
 
 ## sold テーブル
 
