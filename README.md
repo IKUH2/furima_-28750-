@@ -36,6 +36,7 @@
 ### Association
 
 - has_one : trades
+- belongs_to :user
 
 ## trades テーブル
 
