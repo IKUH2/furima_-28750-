@@ -35,6 +35,7 @@
 
 ### Association
 
+- has_one : trades
 - belongs_to :user
 - has_many :trades, dependent: :destroy
 
@@ -55,7 +56,7 @@
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
-| trade_id         | integer    | null: false                   |
+| trade_id         | integer    | null: false, foreign_key::true|
 | post_code        | string(7)  | null: false                   |
 | city             | string     | null: false                   |
 | house_number     | string     | null: false                   |
