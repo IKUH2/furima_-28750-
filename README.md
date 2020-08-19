@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items, dependent: :put,delete,patch
-- has_many :buyer, dependent: :put,patch
+- has_many :sold, dependent: :put,patch
 
 ## items テーブル
 
@@ -31,7 +31,6 @@
 | ship_from        | integer    | null: false |
 | preparation_day  | integer    | null: false |
 | price            | integer    | null: false |
-| size             | integer    | null: false |
 | item             | references | null: false |
 | user_id          | integer    | null: false |
 
@@ -39,7 +38,7 @@
 
 - belongs_to :users, dependent: :get
 - has_many :item_imgs, dependent: :destroy
-- has_many :buyer, dependent: :put,patch
+- has_many :sold, dependent: :put,patch
 
 
 
@@ -54,7 +53,7 @@
 
 - belongs_to :item
 
-## buyer テーブル
+## sold テーブル
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
@@ -69,16 +68,4 @@
 
 ### Association
 
-- belongs_to :user,item
-
-## seller テーブル
-
-| Column           | Type       | Options                       |
-| --------         | ------     | ----------------------------- |
-| user             | string     |null: false, foreign_key: true |
-| item             | references |null: false, foreign_key: true |
-| Shipping address | string     | null: false                   |
-
-### Association
-
-- belongs_to :user,item
+- belongs_to :user,item,dependent: :put,delete,patch
