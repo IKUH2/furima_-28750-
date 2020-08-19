@@ -35,8 +35,8 @@
 
 ### Association
 
-- belongs_to :users, dependent: :get
-- has_many :trade, dependent: :put,patch
+- belongs_to :user
+- has_many :trade, dependent: :destroy
 
 ## trade テーブル
 
@@ -44,7 +44,7 @@
 | --------         | ------     | ----------------------------- |
 | user_id          | string     |null: false, foreign_key: "user_id",class_name: "users" |
 | item_id          | references |null: false, foreign_key: "item_id",class_name: "items" |
-| trade_id         | integer    | null: false                                            |
+
 ### Association
 belongs_to :users,items 
 
@@ -52,15 +52,13 @@ belongs_to :users,items
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
-| user             | string     |null: false, foreign_key: true |
-| item             | references |null: false, foreign_key: true |
+| trade_id         | integer    | null: false                   |
 | post_code        | string(7)  | null: false                   |
 | city             | string     | null: false                   |
 | house_number     | string     | null: false                   |
 | building_name    | string     |                               |
 | phone_number     | integer    | null: false                   |
-| ship_from        | integer    | null: false                   |
 
 ### Association
 
-- belongs_to :users,item,dependent: :put,destroy,patch
+- belongs_to :trade
