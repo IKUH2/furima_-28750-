@@ -115,7 +115,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include "Birth date は西暦から数字８桁で入力して下さい"
     end
 
-    it 'Emailに@がないと保存できない' do
+    it 'Emailに@がないと登録できない' do
       @user.email = 'testemail.com'
       @user.valid?
       expect(@user.errors.full_messages).to include 'Email is invalid'
