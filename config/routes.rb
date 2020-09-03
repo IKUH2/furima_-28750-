@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "homes#index"
-
-devise_scope :user do
-get "/sign_in" => "devise/sessions#new" 
-get "/sign_up" => "devise/registrations#new"
- end
+  resources :items do
+    resources :purchases, only: %i[index create]
+  end
+  root to: 'items#index'
 end
