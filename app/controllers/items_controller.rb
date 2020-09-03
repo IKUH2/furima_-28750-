@@ -2,15 +2,14 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
-  end
-  
-  def new
-    @item = Item.new
-    @item.images.new
+    @items = Item.all.order(id: 'DESC')
   end
 
-  def  create
+  def new
+    @item = Item.new
+  end
+
+  def create
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -21,7 +20,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path(@item)
     else
       render :edit
     end
@@ -31,14 +30,14 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :edit
+      render :show
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :derivery_fee, :size, :status, :data, :area, :introduction, :user, :brand, :category,images_attributes: [:image, :_destroy, :id])
+    params.require(:item).permit(:name, :description, :category_id, :item_condition_id, :delv_fee_id, :delv_from_id, :delv_time_id, :price, :image).merge(user_id: current_user.id)
   end
 
   def set_item
