@@ -9,5 +9,6 @@ FactoryBot.define do
     delv_time_id { Faker::Number.between(from: 2, to: 4) }
     price { Faker::Number.between(from: 300, to: 9_999_999) }
     association :user
+    # item.images.attach_File('spec/fixtures/test_image.jpg', filename: 'test_image.jpg', content_type: 'image/jpg')
+   end
   end
-end

@@ -4,7 +4,7 @@ RSpec.describe Item, type: :model do
   describe '#create' do
     before do
       @item = FactoryBot.build(:item)
-      @item.image = fixture_file_upload('test.png')
+      @item.image = fixture_file_upload('public/images/test_image.png')
     end
 
     it 'nameとdescription、category_id、condition_id、delv_fee_id、delv_from_id、delv_time_id、price、imageが存在すれば登録出来ること' do
@@ -15,6 +15,12 @@ RSpec.describe Item, type: :model do
       @item.name = nil
       @item.valid?
       expect(@item.errors.full_messages).to include "Name can't be blank"
+    end
+
+    it '画像がないと出品できないこと' do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Image can't be blank"
     end
 
     it '商品の説明が空だと登録できないこと' do
