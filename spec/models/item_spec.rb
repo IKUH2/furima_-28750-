@@ -4,7 +4,7 @@ RSpec.describe Item, type: :model do
   describe '#create' do
     before do
       @item = FactoryBot.build(:item)
-      @item.image = fixture_file_upload('images/test_image.png')
+      @item.image = fixture_file_upload('test.png')
     end
 
     it 'nameとdescription、category_id、condition_id、delv_fee_id、delv_from_id、delv_time_id、price、imageが存在すれば登録出来ること' do
