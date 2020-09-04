@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items, dependent: :destroy
-- has_many :trades, dependent: :destroy
+- has_many :purchases, dependent: :destroy
 
 ## items テーブル
 
@@ -35,10 +35,10 @@
 
 ### Association
 
-- has_one : trades
+- has_one : purchases
 - belongs_to :user
 
-## trades テーブル
+## purchases テーブル
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
@@ -47,7 +47,7 @@
 
 ### Association
 
-- has_one:trade
+- has_one:purchase
 - belongs_to :user
 - belongs_to :item
 
@@ -55,7 +55,7 @@
 
 | Column           | Type       | Options                       |
 | --------         | ------     | ----------------------------- |
-| trade_id         | integer    | null: false, foreign_key::true|
+| purchase_id         | integer    | null: false, foreign_key::true|
 | post_code        | string(7)  | null: false                   |
 | city             | string     | null: false                   |
 | house_number     | string     | null: false                   |
@@ -64,4 +64,4 @@
 
 ### Association
 
-- belongs_to :trade
+- belongs_to :purchase
