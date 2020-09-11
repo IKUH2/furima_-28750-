@@ -22,7 +22,7 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include "Post code can't be blank"
     end
 
-    it '都道府県が空だと保存できないこと' do
+    it '都道府県1が選択された場合、保存ができないこと' do
       @purchase_address.prefecture_id = nil
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include 'Prefecture Select'
