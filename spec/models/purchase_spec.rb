@@ -23,7 +23,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     it '都道府県1が選択された場合、保存ができないこと' do
-      @purchase_address.prefecture_id = nil
+      @purchase_address.prefecture_id = 1
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include 'Prefecture Select'
     end
