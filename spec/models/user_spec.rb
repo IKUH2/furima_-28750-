@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
       @user.save
       another_user = FactoryBot.build(:user, email: @user.email)
       another_user.valid?
-      expect(another_user.errors.full_messages).to include"Email has already been taken"
+      expect(another_user.errors.full_messages).to include 'Email has already been taken'
     end
 
     it 'passwordが空だと登録出来ないこと' do
@@ -112,7 +112,7 @@ RSpec.describe User, type: :model do
     it 'birthdayが空だと登録できないこと' do
       @user.birth_date = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include "Birth date は西暦から数字８桁で入力して下さい"
+      expect(@user.errors.full_messages).to include 'Birth date は西暦から数字８桁で入力して下さい'
     end
 
     it 'Emailに@がないと登録できない' do
