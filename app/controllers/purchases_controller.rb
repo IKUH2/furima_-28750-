@@ -21,9 +21,9 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_address_params
-    params.require(:purchase_address).permit(:price, :token, :zip_code, :prefecture_id, :city, :lot_number, :building_name, :phone_number).merge(user_id: current_user.id).merge(item_id: params[:item_id])
+    params.require(:purchase_address).permit(:price, :token, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id).merge(item_id: params[:item_id])
   end
-  
+
   def set_item
     @item = Item.find(params[:item_id])
   end
@@ -34,7 +34,7 @@ class PurchasesController < ApplicationController
   end
 
   def buy_params
-    params.permit(:area_id, :token, :item_id, :prefecture, :city, :postal_code, :building, :adress, :phon_number).merge(user_id: current_user.id)
+    params.permit(:token, :item_id, :prefecture, :city, :post_code, :building_name,:phone_number).merge(user_id: current_user.id)
   end
 
   def pay_item
