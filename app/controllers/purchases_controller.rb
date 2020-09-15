@@ -33,10 +33,6 @@ class PurchasesController < ApplicationController
     redirect_to root_path if @item.user_id == current_user.id
   end
 
-  # def buy_params
-  #   params.permit(:token, :item_id, :prefecture, :city, :post_code, :building_name,:phone_number).merge(user_id: current_user.id)
-  # end
-
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
