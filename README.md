@@ -33,6 +33,7 @@
 | item             | references | null: false |
 | user_id          | integer    | null: false |
 
+
 ### Association
 
 - has_one : purchases
