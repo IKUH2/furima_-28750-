@@ -69,7 +69,5 @@
 - belongs_to :purchase
 
 
-thx
-
 - belongs_to :user!
 - belongs_to :user
